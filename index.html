@@ -3,197 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun! 🎂</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #333;
-        }
+    <title> ✈KyouKenn🍎 </title>
 
-        /* Halaman Login (Tampilan Awal) */
-        #login-page {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 300px;
-        }
-
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 15px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: #ff4757;
-        }
-
-        /* Halaman Utama (Tampilan Setelah Login) */
-        #main-page {
-            display: none; /* Tersembunyi dulu */
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h1 { color: #ff6b6b; margin-bottom: 5px; }
-        p.subtitle { color: #888; font-size: 0.9rem; }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .media-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            padding: 10px;
-        }
-
-        img, video {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            display: block;
-            object-fit: cover;
-        }
-
-        audio {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .caption {
-            margin-top: 5px;
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        /* Confetti Animation Background */
-        body.party {
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Halaman Login -->
-    <div id="login-page">
-        <h2>🎈 Ultah!</h2>
-        <p>Masukkan password untuk masuk:</p>
-        <input type="password" id="passwordInput" placeholder="Password">
-        <button onclick="checkPassword()">Buka Kejutan</button>
-        <p id="error-msg" style="color:red; font-size:12px; display:none;">Password salah!</p>
-    </div>
+    <!-- LOGIN PAGE -->
+    <div id="loginPage">
+        <div class="login-box">
+            <h1>Pesan untuk Kenn</h1>
+            <p>
+                Sebelum dilanjut, masukkan password dulu yahh
+            </p>
 
-    <!-- Halaman Utama / Galeri -->
-    <div id="main-page">
-        <header>
-            <h1>Happy Birthday! 🎂</h1>
-            <p class="subtitle">Selamat ulang tahun ya! Wish you all the best.</p>
-        </header>
+            <p class="clue">
+                Clue : panggilan 2K bukan AK 😏
+            </p>
 
-        <div class="gallery">
-            
-            <!-- Contoh Foto (Ganti src dengan nama file kamu) -->
-            <!-- Cara pakai: Simpan foto di folder yang sama, lalu tulis nama filenya di src -->
-            <div class="media-card">
-                <img src="foto1.jpg" alt="Foto 1" onerror="this.style.display='none'">
-                <div class="caption">Momen seru kita</div>
-            </div>
+            <input
+                type="password"
+                id="password"
+                placeholder="Masukkan Password">
 
-            <!-- Contoh Video -->
-            <div class="media-card">
-                <video controls onerror="this.style.display='none'">
-                    <source src="video1.mp4" type="video/mp4">
-                    Browser kamu tidak mendukung video.
-                </video>
-                <div class="caption">Video lucu</div>
-            </div>
+            <button onclick="checkPassword()">
+                ✨ Check it Out ✨
+            </button>
 
-            <!-- Contoh Voice Note (Audio) -->
-            <div class="media-card">
-                <div class="caption">🎤 Pesan dari kita</div>
-                <audio controls>
-                    <source src="vn1.mp3" type="audio/mpeg">
-                </audio>
-            </div>
-
-            <!-- Tambah Media Baru: Copy paste blok di bawah ini sesuai kebutuhan -->
-            <!-- 
-            <div class="media-card">
-                <img src="fotoku.jpg">
-                <div class="caption">Keterangan foto</div>
-            </div> 
-            -->
-
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px;">
-            <button onclick="exitParty()" style="background:#ccc; width: auto;">Kunci Lagi</button>
+            <p id="error-msg">
+                Yahh passwordnya belum benar tuh😌
+            </p>
         </div>
     </div>
 
-    <script>
-        // --- CONFIGURATION ---
-        // Ganti password di bawah sini sesuai keinginan kamu!
-        const PASS = "ultah2024"; 
-        // ----------------------
 
-        function checkPassword() {
-            var input = document.getElementById('passwordInput').value;
-            if(input === PASS) {
-                document.getElementById('login-page').style.display = 'none';
-                document.getElementById('main-page').style.display = 'block';
-                document.body.classList.add('party');
-            } else {
-                document.getElementById('error-msg').style.display = 'block';
-            }
-        }
+    <!-- BOARDING APPROVED -->
+    <div id="approvedPage">
+        <div class="approved-box">
+            <div class="approved-icon">
+                🛫
+            </div>
 
-        function exitParty() {
-            document.getElementById('passwordInput').value = "";
-            document.getElementById('login-page').style.display = 'block';
-            document.getElementById('main-page').style.display = 'none';
-            document.body.classList.remove('party');
-        }
+            <h2>
+                Boarding Approved
+            </h2>
 
-        // Cek Enter key agar lebih mudah
-        document.getElementById("passwordInput").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                checkPassword();
-            }
-        });
-    </script>
+            <p>
+                Welcome aboard,
+                <br>
+                Passenger KyouKenn
+            </p>
+
+            <p class="approved-flight">
+                Flight ApplePlane KYOU-0613
+            </p>
+        </div>
+    </div>
+
+
+    <!-- BOARDING PASS -->
+    <div id="boardingPage">
+        <div class="boarding-card">
+            <div class="boarding-header">
+                ✈ Boarding Pass
+            </div>
+
+            <div class="boarding-content">
+                <p>
+                    Destination
+                    <span>K-Dope</span>
+                </p>
+
+                <p>
+                    Passenger
+                    <span>KyouKenn as Caleb</span>
+                </p>
+
+                <p>
+                    Flight Number
+                    <span>KYOU-0613</span>
+                </p>
+
+                <p>
+                    Status
+                    <span class="status">
+                        Cleared For Takeoff
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div id="content">
+        <div class="container">
+            <div class="card">
+                <h1 class="title">
+                    🎂 Happy Birthday, Caleb 🎂
+                </h1>
+
+                <p class="subtitle">
+                    A small digital gift made especially for you.
+                </p>
+
+                <div class="divider"></div>
+
+
+                <!-- LETTER -->
+                <div class="message">
+                    <span id="typing"></span>
+                </div>
+
+
+                <!-- MEMORIES -->
+                <h2 class="section-title">
+                    📸 Your Memories
+                </h2>
+
+                <div class="timeline">
+                    <div class="timeline-item polaroid">
+                        <img
+                            src="foto1.jpg"
+                            alt="Memory 1">
+                            <p>
+                            ✨ First Memory
+                            </p>
+                    </div>
+
+                    <div class="timeline-item polaroid">
+                        <img
+                            src="foto2.jpg"
+                            alt="Memory 2">
+                            <p>
+                                🍎 Random Memory
+                            </p>
+                    </div>
+
+                    <div class="timeline-item polaroid">
+                        <img
+                            src="foto3.jpg"
+                            alt="Memory 3">
+                            <p>
+                                🧡 Special Memory
+                            </p>
+                    </div>
+                </div>
+
+
+                <!-- VIDEO -->
+                <h2 class="section-title">
+                    🎥 Special Video
+                </h2>
+
+                <div class="gallery">
+                    <video controls>
+                        <source
+                            src="video.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+
+
+                <!-- VOICE NOTE -->
+                <h2 class="section-title">
+                    🎙 Voice Note
+                </h2>
+
+                <div class="audio-box">
+                    <audio controls>
+                        <source
+                            src="voice-note.mp3"
+                            type="audio/mpeg">
+                    </audio>
+                </div>
+
+
+                <!-- FOOTER -->
+                <div class="footer">
+                    Made with 🧡🧡 from me
+                    <br>
+                    Especially for your day
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- AIRPLANE -->
+    <div class="airplane">
+        ✈
+    </div>
+
+
+    <!-- HIDDEN BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop>
+        <source
+            src="bgm photograph.mp3"
+            type="audio/mpeg">
+    </audio>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
 </body>
 </html>
